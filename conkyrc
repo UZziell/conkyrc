@@ -1,0 +1,76 @@
+conky.config = {
+	update_interval = 1,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 2,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	gap_x = 7,
+	gap_y = 0,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'Chilanka:Bold:size=11',
+	xftalpha = 0.8,
+	uppercase = false,
+	default_color = 'white',
+	own_window_colour = '#000000',
+	minimum_width = 300, minimum_height = 0,
+	maximum_width = 320, 
+	alignment = 'top_left',
+}
+
+conky.text = [[
+${color #6b6b6b}$hr
+${color grey}CPU:$color ${freq_g}GHz $alignc$cpu%${offset 15}${cpubar 4}
+${color grey}RAM: $color$mem $alignc $memperc%${offset 7}${membar 4}
+${color grey}Swap:$color $swap $alignc$swapperc%${offset 15}${swapbar 4}
+ /     $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+ /home $color${fs_used /home}/${fs_size /home}  ${fs_bar 6 /home}
+#
+#
+## IP and upload/download speed 
+#${color grey}Up:$color ${upspeed wlp2s0} ${goto 170}${color grey}Ex: $color${execi 60 nice -n 19 curl ipv4.icanhazip.com 2>/dev/null  | echo "$(cat -)"}
+${color grey}Up:$color ${upspeed wlp2s0} ${goto 170}${color grey}Ex: $color${execi 60 nice -n 19 curl ipv4bot.whatismyipaddress.com 2>/dev/null  | echo "$(cat -)"}
+${color grey}Down:$color ${downspeed wlp2s0} ${color grey}${goto 170}In:  ${color white}${if_up wlp2s0}${addr wlp2s0}
+#
+${endif}${color grey}CPU Temperature:    ${font Chilanka:Bold:size=14}${color #ff4040}${acpitemp}$font
+#
+#
+${color #6b6b6b}$hr 
+## ${color grey}Processes: ${color}${processes}       ${color grey}Running:$color ${running_processes}
+$color${font Ubuntu Mono:normal:size=13}Name $alignr PID   CPU%   MEM%
+${font Ubuntu Mono:Bold:size=12}${color red}${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}
+${font Ubuntu Mono:Bold:size=12}${color e00014}${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+${font Ubuntu Mono:italic:size=12}${color white}${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+${top name 5} $alignr ${top pid 5} ${top cpu 5} ${top mem 5}
+${top name 6} $alignr ${top pid 6} ${top cpu 6} ${top mem 6}
+${top name 7} $alignr ${top pid 7} ${top cpu 7} ${top mem 7}
+${color #6b6b6b}$hr
+#
+#
+## Painting's Name with gsettings
+${font Chilanka:bold:size=11}${color #ff9b21}${execi 5 nice -n 19 /usr/bin/gsettings get org.gnome.desktop.background picture-uri  | \
+ sed -r 's:^.*\/::g'| \
+ sed -r 's:\)?\.([jJ][pP][eE]?[gG]|[pP][nN][gG]).?::' | \
+ sed -r 's: -:\n   :' | sed -r 's: (\(|\=):\n\t:' | sed -r 's:, :\n\t  :'
+ echo -n "  $(cat -)"}
+#
+#
+${font Ani:normal:size=14}${color #66CDAA}${execpi 20 nice -n 19 $PWD/lyric_cal.sh 2> /dev/null}${font}
+#Todo: temperatures ${acpitemp}
+]]
+
