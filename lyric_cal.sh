@@ -16,7 +16,7 @@ then
 
 	#curl -s --get "https://makeitpersonal.co/lyrics/" --data-urlencode "artist=$(playerctl metadata artist | sed -r 's:\s?(,|- ).*::')" --data-urlencode "title=$(playerctl metadata title | sed -r 's:\s?(,|- ).*::')" | sed -r '/^\s*$/d'
 	# SED = DELET EMPTY LINES	
-	Lyrics=$(curl -s --get "$LyricsAPI" --data-urlencode "artist=${Artist}" --data-urlencode "title=${Title}" | sed -r '/^\s*$/d' ) 
+	Lyrics=$(curl -s --get "$LyricsAPI" --data-urlencode "artist=${Artist}" --data-urlencode "title=${Title}" | sed -r '/^\s*$/d' | sed -r 's:^:        :' ) 
 	WCL=$(echo -n "$Lyrics" | wc -l)
 	
 	if [[ "$Lyrics" = "Invalid params" || "$Lyrics" = "No players found" || $Lyrics == *"Sorry, We don't have lyrics"* ]]; then
