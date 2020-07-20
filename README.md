@@ -12,20 +12,36 @@ This is a onky config file that beside system information shows playing song's l
 * conky package itself should be installed.
 * playerctl package to find the current playing song info.
 * jcal package to show the calendar.
+* python ansito package
 
-In debian based distros you can install them with:
+### Installing
+
+1. In debian based distros you can install them with:
 ```
 sudo apt update && sudo apt install conky playerctl jcal
 ```
-also clone the repo or download  the zip:
+2. installing ansito using pip:
 ```
-git clone https://github.com/UZziell/conkyrc.git
+pip3 install ansito
+```
+*if you got "pip3 not found", try:*
+```
+sudo apt install python3-pip
+```
+and try step 2 again.
+  
+3. also clone the repo or download  the zip:
+```
+git clone https://github.com/UZziell/conkyrc.git && cd conkyrc
 ```
 
 ### Using
-
+Give lyric_cal.sh execute permission:
+```
+sudo chmod u+x lyric_cal.sh
+```
 Just tell conky to use this config file instead of the default config:
 
 ```
-conky -c /path/to/conkyrc/conkyrc
+conky -c conkyrc
 ```
