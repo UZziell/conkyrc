@@ -14,15 +14,21 @@ This is a onky config file that beside system information shows playing song's l
 * jcal package to show the calendar.
 * python ansito package
 
-In debian based distros you can install them with:
+1. In debian based distros you can install them with:
 ```
 sudo apt update && sudo apt install conky playerctl jcal
 ```
-installing ansito using pip:
+2. installing ansito using pip:
 ```
-pip install ansito
+pip3 install ansito
 ```
-also clone the repo or download  the zip:
+  if you got "pip3 not found", try:
+  ```
+  sudo apt install python3-pip
+  ```
+  and try step 2 again.
+  
+3. also clone the repo or download  the zip:
 ```
 git clone https://github.com/UZziell/conkyrc.git && cd conkyrc
 ```
