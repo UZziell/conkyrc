@@ -63,11 +63,11 @@ ${color #6b6b6b}$hr
 #
 #
 ## Painting's Name with gsettings
-${font Chilanka:bold:size=11}${color #ff9b21}${execi 5 nice -n 19 /usr/bin/gsettings get org.gnome.desktop.background picture-uri  | \
- sed -r 's:^.*\/::g'| \
- sed -r 's:\)?\.([jJ][pP][eE]?[gG]|[pP][nN][gG]).?::' | \
- sed -r 's: -:\n   :' | sed -r 's: (\(|\=):\n\t:' | sed -r 's:, :\n\t  :'
- echo -n "  $(cat -)"}
+#${font Chilanka:bold:size=11}${color #ff9b21}${execi 5 nice -n 19 /usr/bin/gsettings get org.gnome.desktop.background picture-uri  | \
+# sed -r 's:^.*\/::g'| \
+# sed -r 's:\)?\.([jJ][pP][eE]?[gG]|[pP][nN][gG]).?::' | \
+# sed -r 's: -:\n   :' | sed -r 's: (\(|\=):\n\t:' | sed -r 's:, :\n\t  :'
+# echo -n "  $(cat -)"}
 #
 #
 ${font Ani:normal:size=14}${color #66CDAA}${execpi 20 nice -n 19 $PWD/lyric_cal.sh 2> /dev/null}${font}
