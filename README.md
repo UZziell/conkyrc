@@ -22,11 +22,11 @@ sudo apt update && sudo apt install conky playerctl jcal
 ```
 pip3 install ansito
 ```
-  if you got "pip3 not found", try:
-  ```
-  sudo apt install python3-pip
-  ```
-  and try step 2 again.
+*if you got "pip3 not found", try:*
+```
+sudo apt install python3-pip
+```
+and try step 2 again.
   
 3. also clone the repo or download  the zip:
 ```
