@@ -6,7 +6,7 @@ statu="$(playerctl --ignore-player=chromium --ignore-player=vlc status 2>&1)"
 
 if [[ $statu == *"No players"* ]] || [[ $statu == *"Stop"* ]] || [[ $statu == *"Pause"* ]]
 then
-	#echo -n "$(/usr/bin/jcal -e | tail -7 | /home/uzziel/anaconda3/bin/ansito - | sed -r 's: :  :g' | sed -r 's:\$\{color\s\s?black\}:\$\{color #00ffa8\}:' | sed -r 's:^:         :'  | sed '2s/.*/\ &/' |  sed '1s:^:\n:' )"
+	echo -n "$(/usr/bin/jcal -e | tail -7 | $HOME/.local/bin/ansito - | sed -r 's: :  :g' | sed -r 's:\$\{color\s\s?black\}:\$\{color #00ffa8\}:' | sed -r 's:^:         :'  | sed '2s/.*/\ &/' |  sed '1s:^:\n:' )"
 elif [[ $statu == *"Playing"* ]];
 then
 	LyricsAPI="https://makeitpersonal.co/lyrics/"
