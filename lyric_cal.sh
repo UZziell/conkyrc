@@ -2,7 +2,7 @@
 # Simple lyrics finder with playerctl
 # Shows jcal if no song is playing.
 
-statu="$(playerctl --ignore-player=chromium --ignore-player=vlc status 2>&1)"
+statu="$(playerctl --ignore-player=chromium --ignore-player=vlc status)"
 
 if [[ $statu == *"No players"* ]] || [[ $statu == *"Stop"* ]] || [[ $statu == *"Pause"* ]]
 then
